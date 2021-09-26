@@ -14,7 +14,7 @@ export default function GameScreen() {
   const [rounds, setRounds] = useState(0);
   const [rightName, setRightName] = useState();
   const [currentImage, setCurrentImage] = useState();
-  const [currentNames, setCurrentNames] = useState(["NA", "NA", "NA", "NA"]);
+  const [currentNames, setCurrentNames] = useState();
 
   // State for the timer is handled for you.
   const [timeLeft, setTimeLeft] = useState(5000);
@@ -76,7 +76,7 @@ export default function GameScreen() {
     /* TODO: Call the countDown() method every 10 milliseconds */
     const interval = setInterval(() => {
       countDown();
-    }, 10); 
+    }, 1000); 
     return () => clearInterval(interval);
   });
 
@@ -93,6 +93,7 @@ export default function GameScreen() {
   const nameButtons = [];
   for (let i = 0; i < 4; i++) {
     const j = i;
+    console.log("Creating button " + i)
     nameButtons.push(
       // TODO: Implement a Button/Pressable type that shows a name choice, and implement the functionality when a user press on it
       // Hint: Most functionality is already taken care of by one of the functions already defined      
